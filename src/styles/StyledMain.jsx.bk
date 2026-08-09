@@ -1,0 +1,347 @@
+import styled from 'styled-components';
+
+const StyledMain = styled.main`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: calc(100vh - 128px);
+  box-sizing: border-box;
+  color: ${({ theme }) => theme.colors.text}; /* Use theme text color */
+  transition: color 0.3s ease;
+
+
+  @media (max-width: 767px) {
+    padding: 20px 15px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 30px 25px;
+  }
+
+  body {
+    /* margin: 0; */
+    /* font-family: ${({ theme }) => theme.fonts.body}; */
+    background-color: ${({ theme }) => theme.colors.bodyBackground}; /* Use theme background color */
+    /* color: ${({ theme }) => theme.colors.text}; Ensure text color is themed */
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.primary}; /* Use theme primary color */
+    font-family: ${({ theme }) => theme.fonts.heading};
+
+
+    @media (max-width: 767px) {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+  }
+
+  p, ul, li {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: justify;
+    color: ${({ theme }) => theme.colors.text}; /* Ensure text colors are themed */
+
+    @media (max-width: 767px) {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      font-size: 0.95rem;
+    }
+  }
+
+  ul {
+    padding-left: 20px;
+    list-style: disc;
+  }
+
+  strong {
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.primary}; /* Make strong text stand out with primary color */
+  }
+`;
+
+const NavPlaceholder = styled.nav` /* This Nav is for local use in Home, not the main Nav component */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 16px;
+  }
+`;
+
+const LogoPlaceholder = styled.h1` /* This is for local use in Home, not the main Nav component */
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.primary};
+`;
+
+const NavLinksPlaceholder = styled.ul` /* This is for local use in Home, not the main Nav component */
+  list-style: none;
+  display: flex;
+  gap: 24px;
+
+  li {
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.text};
+  }
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+    flex-direction: column;
+  gap: 12px;
+
+  @media (max-width: 767px) {
+    flex-direction: row;
+    gap: 10px;
+    button {
+      width: 100%;
+    }
+  }
+`;
+
+const Button = styled.button`
+  padding: 10px 20px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+
+  ${({ variant, theme }) =>
+    variant === 'filled'
+      ? `
+    background: ${theme.colors.buttonPrimaryBg};
+    color: ${theme.colors.buttonPrimaryText};
+    border: 1px solid ${theme.colors.buttonPrimaryBg};
+    &:hover {
+      background: ${theme.colors.accent};
+      border-color: ${theme.colors.accent};
+    }
+  `
+      : `
+    background: ${theme.colors.buttonSecondaryBg};
+    border: 1px solid ${theme.colors.buttonSecondaryBorder};
+    color: ${theme.colors.buttonSecondaryText};
+    &:hover {
+      background: ${theme.colors.buttonSecondaryBorder};
+      color: ${theme.colors.buttonPrimaryText};
+    }
+  `}
+`;
+
+const Hero = styled.section`
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 96px;
+
+  & > div {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+
+    @media (max-width: 1023px) {
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 60px;
+    gap: 20px;
+  }
+`;
+
+const Headline = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: left;
+  line-height: 1.2;
+  width: 500px;
+  color: ${({ theme }) => theme.colors.primary};
+
+
+  @media (max-width: 1023px) {
+    font-size: 2rem;
+    width: auto;
+    text-align: center;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 1.8rem;
+  }
+`;
+
+const Paragraph = styled.p`
+  font-size: 1rem;
+  max-width: 600px;
+  color: ${({ theme }) => theme.colors.text};
+  text-align: left;
+
+  @media (max-width: 1023px) {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 0.9rem;
+  }
+`;
+
+const HeroImage = styled.div`
+  width: 100%;
+  height: 300px;
+  background: ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+
+  @media (max-width: 767px) {
+    height: 200px;
+  }
+`;
+
+// FEATURES SECTION
+const Section = styled.section`
+  text-align: center;
+  padding: 80px 24px;
+  background-color: ${({ theme }) => theme.colors.background}; /* Use background color */
+  border: 1px solid ${({ theme }) => theme.colors.border}; /* Added border */
+  border-radius: ${({ theme }) => theme.borderRadius};
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+
+  @media (max-width: 767px) {
+    padding: 40px 20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 60px 24px;
+  }
+`;
+
+const Subheading = styled.span`
+  font-size: 0.9rem;
+  color: ${({ theme }) => theme.colors.secondary}; /* Use a secondary color for subheading */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  @media (max-width: 767px) {
+    font-size: 0.8rem;
+  }
+`;
+
+const FeatureHeading = styled.h2`
+  font-size: 2rem;
+  margin: 12px 0 24px;
+  font-weight: bold;
+  font-family: ${({ theme }) => theme.fonts.heading};
+  color: ${({ theme }) => theme.colors.primary};
+
+
+  @media (max-width: 767px) {
+    font-size: 1.5rem;
+    margin: 10px 0 18px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 1.8rem;
+  }
+`;
+
+const FeatureDesc = styled.p`
+  max-width: 700px;
+  margin: 0 auto 48px;
+  font-size: 1rem;
+  color: ${({ theme }) => theme.colors.text};
+
+  @media (max-width: 767px) {
+    font-size: 0.9rem;
+    margin: 0 auto 30px;
+  }
+`;
+
+const FeatureGrid = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 48px;
+
+  @media (max-width: 767px) {
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+`;
+
+const Feature = styled.div`
+  max-width: 260px;
+  text-align: center;
+
+  h3 {
+    font-family: ${({ theme }) => theme.fonts.heading};
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: ${({ theme }) => theme.colors.text};
+  }
+
+  @media (max-width: 767px) {
+    max-width: 90%;
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+    p {
+      font-size: 0.85rem;
+    }
+  }
+`;
+
+
+const ResponsiveFlex = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+
+  @media (max-width: 767px) {
+    flex-direction: row;
+  }
+`;
+
+export default StyledMain;
+
