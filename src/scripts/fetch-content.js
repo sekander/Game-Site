@@ -14,7 +14,7 @@ const pagesToFetch = [
   { key: "home", slug: "home" },
   { key: "about", slug: "about" },
   { key: "projectsGames", slug: "project-games" },
-  { key: "changelog", slug: "changelog" },
+  { key: "changelog", slug: "change-log" },
   { key: "contactUs", slug: "contact-us" },
   { key: "privacyNotice", slug: "privacy-policy" },
   { key: "footer", slug: "footer" },

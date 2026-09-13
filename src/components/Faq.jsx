@@ -253,7 +253,7 @@ const FormButton = styled.button`
   }
 `;
 
-// Why Choose Threeclipse Studios Section
+// Why Choose FnkyG4m3z Studios Section
 const ChooseStudioContent = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -436,9 +436,9 @@ const FAQItem = ({ question, answer }) => {
 const FAQ = () => {
   const faqData = [
     {
-      question: 'What is Threeclipse Studios?',
+      question: 'What is FnkyG4m3z Studios?',
       answer:
-        'Threeclipse Studios is a game development company founded on the love for a true gaming experience. Our team is passionate about storytelling and immersed in the gaming industry. We strive to create engaging projects that resonate with players.',
+        'FnkyG4m3z Studios is a game development company founded on the love for a true gaming experience. Our team is passionate about storytelling and immersed in the gaming industry. We strive to create engaging projects that resonate with players.',
     },
     {
       question: 'How can I join?',
@@ -466,7 +466,7 @@ const FAQ = () => {
     <PageContainer>
       <FAQHeader>
         <h1>FAQs</h1>
-        <p>Find answers to your most pressing questions about Threeclipse Studios and our projects.</p>
+        <p>Find answers to your most pressing questions about FnkyG4m3z Studios and our projects.</p>
       </FAQHeader>
       <FAQListSection>
         {faqData.map((item, index) => (
@@ -492,9 +492,9 @@ const FAQ = () => {
       <SectionWrapper>
         <ChooseStudioContent>
           <ChooseStudioText>
-            <h3>Why Choose Threeclipse Studios <br/> for Your Projects?</h3>
+            <h3>Why Choose FnkyG4m3z Studios <br/> for Your Projects?</h3>
             <p>
-              At Threeclipse Studios, we fuse passion with remarkable expertise. Our commitment to innovation
+              At FnkyG4m3z Studios, we fuse passion with remarkable expertise. Our commitment to innovation
               is matched only by our dedication to crafting unparalleled experiences. We believe that every
               project is a unique masterpiece. Our dedicated team is committed to delivering exceptional results
               that exceed your expectations.
@@ -508,11 +508,11 @@ const FAQ = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <SectionTitle>Discover Our Impressive Achievements and Milestones at Threeclipse Studios</SectionTitle>
+        <SectionTitle>Discover Our Impressive Achievements and Milestones at FnkyG4m3z Studios</SectionTitle>
         <AchievementsGrid>
           <AchievementsText>
             <p>
-              At Threeclipse Studios, we boast a profound commitment to remarkable outcomes. Our commitment
+              At FnkyG4m3z Studios, we boast a profound commitment to remarkable outcomes. Our commitment
               to innovation is matched only by our dedication to crafting unparalleled experiences in the gaming industry.
             </p>
           </AchievementsText>

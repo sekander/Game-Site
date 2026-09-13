@@ -91,7 +91,7 @@ const MenuItemButton = styled.button`
   background: none;
   border: none;
   color: ${({ theme }) => theme.colors.neonSecondary};
-  cursor: pointer;
+  cursor: pointer;G
   font-size: 1.1rem;
   font-weight: 500;
   border-bottom: 1px solid ${({ theme }) => theme.colors.neonPrimary};
@@ -128,21 +128,21 @@ export default function NavMenu() {
   const sideMenuRef = useRef(null);
 
   const menuItems = [
-    { label: "Home", path: "/", icon: "/images/Icon_Theme1_comet.png" },
+    { label: "Home", path: "/", icon: "/images/Home_Page_Icon.png" },
     {
       label: "Projects / Games",
       path: "/projects",
-      icon: "/images/Icon_Theme1_controller.png",
+      icon: "/images/Game_Page_Icon.png",
     },
     {
       label: "Change Log",
       path: "/changelog",
-      icon: "/images/Icon_Theme1_rocket.png",
+      icon: "/images/ChangeLog_Page_Icon.png",
     },
     {
-      label: "Contact Us",
+      label: "Contact Me",
       path: "/contact-us",
-      icon: "/images/Icon_Theme1_radar.png",
+      icon: "/images/Contact_Page_Icon.png",
     },
   ];
 

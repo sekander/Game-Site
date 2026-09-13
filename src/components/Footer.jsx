@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import ContentContext from '../contexts/ContentContext';
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import ContentContext from "../contexts/ContentContext";
 
 // ===== Styled Components =====
 const FooterWrapper = styled.footer`
@@ -10,7 +10,10 @@ const FooterWrapper = styled.footer`
   color: ${({ theme }) => theme.colors.text};
   font-size: 14px;
   width: 100%;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
   padding-top: 10px;
 
   @media (max-width: 767px) {
@@ -47,8 +50,9 @@ const ContentBlock = styled.div`
 `;
 
 const LogoImage = styled.img`
-  width: 400px;
-  height: auto;
+  width: 100px;
+  height: 100px;
+  scale: 2.5;
   margin-bottom: 0px;
   object-fit: contain;
 
@@ -102,7 +106,9 @@ const BottomBar = styled.div`
   text-align: center;
   font-size: 12px;
   color: ${({ theme }) => theme.colors.text};
-  transition: border-color 0.3s ease, color 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease;
   width: 100%;
   padding-bottom: 10px;
 `;
@@ -165,11 +171,11 @@ const TickerWrapper = styled.div`
 `;
 
 const TickerContent = styled.div`
- display: inline-block;
+  display: inline-block;
   white-space: nowrap;
   animation: scroll 180s linear infinite;
   will-change: transform;
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -184,7 +190,7 @@ const TickerContent = styled.div`
     margin-right: 80px; /* spacing between items */
     color: ${({ theme }) => theme.colors.link};
     text-decoration: none;
-    text-shadow: 0 0 1px rgba(0,0,0,0); /* stabilize color */
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0); /* stabilize color */
     font-weight: 500;
 
     &:hover {
@@ -202,19 +208,17 @@ const TickerContent = styled.div`
   }
 `;
 
-
 // ===== Fallback Content =====
 const fallbackContent = {
-  footerlogoimage: { url: 'https://via.placeholder.com/100x100?text=Logo' },
-  social1image: { url: 'https://via.placeholder.com/50?text=IG' },
-  social2image: { url: 'https://via.placeholder.com/50?text=IN' },
-  social3image: { url: 'https://via.placeholder.com/50?text=DC' },
-  social_icons_label: 'Follow us',
-  email: 'contact@threeclipse.com',
-  copyright: '© 2025 Threeclipse. All rights reserved.',
-  privacy_policy: 'Privacy Policy',
-  terms_of_service: 'Terms of Service',
-  cookie_settings: 'Cookie Settings',
+  footerlogoimage: { url: "https://via.placeholder.com/100x100?text=Logo" },
+  social1image: { url: "https://via.placeholder.com/50?text=IG" },
+  social2image: { url: "https://via.placeholder.com/50?text=IN" },
+  social3image: { url: "https://via.placeholder.com/50?text=DC" },
+  social_icons_label: "Find me",
+  email: "contact@fnkyg4m3z.com",
+  copyright: "© 2026 FnkyG4m3z. All rights reserved.",
+  terms_of_service: "Terms of Service",
+  cookie_settings: "Cookie Settings",
 };
 
 // ===== Footer Component =====
@@ -225,29 +229,37 @@ export default function Footer() {
 
   const getField = (key) => {
     const value = content.footer?.[key];
-    return value === undefined || value === null || value === '' ? fallbackContent[key] : value;
+    return value === undefined || value === null || value === ""
+      ? fallbackContent[key]
+      : value;
   };
 
-  const handlePrivacyClick = () => navigate('/privacy-notice');
-  const handleInstagramClick = () => window.open('https://store.steampowered.com/developer/Threeclipse', '_blank');
-  const handleLinkedInClick = () => window.open('https://www.linkedin.com/company/threeclipse/', '_blank');
-  const handleDiscordClick = () => window.open('https://discord.gg/NpNHBkWqyM', '_blank');
+  const handleInstagramClick = () =>
+    window.open("https://github.com/sekander", "_blank");
+  const handleLinkedInClick = () =>
+    window.open("http://linkedin.com/in/nahid-sekander-43393b253", "_blank");
+  const handleDiscordClick = () =>
+    window.open("https://discord.com/users/1061142245207711815", "_blank");
 
   // ===== Browser-safe RSS fetch using AllOrigins + DOMParser =====
   useEffect(() => {
     const loadRSS = async () => {
       try {
         const rssUrl = "https://feeds.ign.com/ign/all";
-        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`);
+        const response = await fetch(
+          `https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`,
+        );
         const data = await response.json();
 
         const parser = new DOMParser();
         const xml = parser.parseFromString(data.contents, "text/xml");
 
-        const itemsArray = Array.from(xml.querySelectorAll("item")).map(item => ({
-          title: item.querySelector("title")?.textContent || "No title",
-          link: item.querySelector("link")?.textContent || "#",
-        }));
+        const itemsArray = Array.from(xml.querySelectorAll("item")).map(
+          (item) => ({
+            title: item.querySelector("title")?.textContent || "No title",
+            link: item.querySelector("link")?.textContent || "#",
+          }),
+        );
 
         setItems(itemsArray);
       } catch (error) {
@@ -263,45 +275,43 @@ export default function Footer() {
       <Container>
         <ContentBlock>
           {/* Logo Image */}
-          <LogoImage src={getField('footerlogoimage').url} alt="Logo" />
+          <LogoImage src="/images/mlogo.png" alt="Logo" />
 
           {/* Social Icons */}
-          <SocialIconsLabel>{getField('social_icons_label')}</SocialIconsLabel>
+          <SocialIconsLabel>{getField("social_icons_label")}</SocialIconsLabel>
           <SocialIcons>
-            <SocialIconImage src={getField('social1image').url} alt="Steam" onClick={handleInstagramClick} />
-            <SocialIconImage src={getField('social2image').url} alt="LinkedIn" onClick={handleLinkedInClick} />
-            <SocialIconImage src={getField('social3image').url} alt="Discord" onClick={handleDiscordClick} />
+            <SocialIconImage
+              src="/images/github-white-icon.webp"
+              alt="Git"
+              onClick={handleInstagramClick}
+            />
+            <SocialIconImage
+              src="/images/linkedin-icon-logo.png"
+              alt="LinkedIn"
+              onClick={handleLinkedInClick}
+            />
+            <SocialIconImage
+              src="/images/discord-logo-discord-icon-.webp"
+              alt="Discord"
+              onClick={handleDiscordClick}
+              style={{
+                transform: "scale(1.65)",
+                transition: "transform 0.3s ease",
+              }}
+            />
           </SocialIcons>
 
-          <ContactEmail>Email us at: <a href="mailto:contact@threeclipse.com">contact@threeclipse.com</a></ContactEmail>
+          <ContactEmail>
+            Email :{" "}
+            <a href="mailto:sekander@protonmail.com">sekander@protonmail.com</a>
+          </ContactEmail>
         </ContentBlock>
-
-        {/* RSS Feed Ticker */}
-        <ContentBlock>
-          <h2>Latest News</h2>
-          <TickerWrapper>
-            <TickerContent>
-              {items.map((item, i) => (
-                <a 
-                  key={i} 
-                  href={item.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ color: i % 2 === 0 ? '#ff6600' : '#0099ff' }} // alternating colors
-                >
-                  {item.title}
-                </a>
-              ))}
-            </TickerContent>
-          </TickerWrapper>
-        </ContentBlock>
-
       </Container>
 
+      {/* Copyright Feed Ticker */}
       <BottomBar>
-        <p>{getField('copyright')}</p>
+        <p>{getField("copyright")}</p>
         <LinkGroup>
-          <NavButton onClick={handlePrivacyClick}>{getField('privacy_policy')}</NavButton>
           {/* <NavButton>{getField('terms_of_service')}</NavButton> */}
           {/* <NavButton>{getField('cookie_settings')}</NavButton> */}
         </LinkGroup>
@@ -309,4 +319,3 @@ export default function Footer() {
     </FooterWrapper>
   );
 }
-

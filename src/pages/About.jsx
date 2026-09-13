@@ -117,7 +117,7 @@ const fallbackContent = {
   about_title: "About Us",
   section_1_title: "Building great experiences",
   section_1_content:
-    "Threeclipse Inc. is an indie game development studio dedicated to crafting exceptional games with meaningful stories. Founded in 2025 in Montreal, Canada, we are committed to healthy, sustainable development.",
+    "FnkyG4m3z Inc. is an indie game development studio dedicated to crafting exceptional games with meaningful stories. Founded in 2025 in Montreal, Canada, we are committed to healthy, sustainable development.",
   section_2_title: null,
   section_2_content:
     "We believe in collaborative growth, respectful communication, and the ethical use of technology. While the studio remains fully remote, we operate as a tight-knit team united by a shared passion for narrative-driven, innovative gameplay experiences.",
